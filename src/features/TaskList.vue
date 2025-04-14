@@ -34,7 +34,7 @@ export default {
       }
     });
 
-    const tasks = computed(() => state.tasks);
+    const tasks = computed(() => state.value.tasks);
 
     return { tasks };
   },

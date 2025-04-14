@@ -1,12 +1,10 @@
-<script setup lang="ts"></script>
-
 <template>
-  <header>
-    <div>
-      <p>"You did it!"</p>
-    </div>
-  </header>
+  <AppHeader />
   <HomeView />
 </template>
 
+<script setup lang="ts">
+import AppHeader from '@/features/AppHeader.vue';
+import HomeView from '@/views/HomeView.vue';
+</script>
 <style scoped></style>
