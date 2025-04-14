@@ -1,14 +1,16 @@
 <!-- src/features/tasks/components/TaskList.vue -->
 <template>
   <v-container>
-    <v-list>
-      <TaskItem v-for="task in tasks" :key="task.id" :task="task" />
-    </v-list>
+    <div class="min-w-50 min-h-50">
+      <v-list>
+        <TaskItem v-for="task in tasks" :key="task.id" :task="task" />
+      </v-list>
+    </div>
   </v-container>
 </template>
 
 <script lang="ts">
-import { computed, onBeforeMount } from 'vue';
+import { computed, onMounted } from 'vue';
 import TaskItem from '@/shared/components/TaskItem.vue';
 import { fetchTasks } from '@/api/api';
 import { useActions } from '@/shared/composables/useActions';
@@ -22,16 +24,21 @@ export default {
     const { state } = useRedux();
     const { setTasks } = useActions();
     const { getItem } = useLocalStorage();
-    onBeforeMount(async () => {
+    onMounted(async () => {
+      console.group('----- TaskList - onBeforeMount');
       const oldTasks = getItem('tasks');
-      if (oldTasks) {
+      console.log('oldTasks -', oldTasks);
+      if (oldTasks && oldTasks?.length > 0) {
         setTasks(oldTasks);
+        console.groupEnd();
         return;
       }
       const tasks = await fetchTasks();
+      console.log('tasks    -', tasks);
       if (tasks) {
         setTasks(tasks);
       }
+      console.groupEnd();
     });
 
     const tasks = computed(() => state.value.tasks);

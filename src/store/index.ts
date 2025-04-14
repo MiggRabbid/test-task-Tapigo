@@ -12,9 +12,12 @@ export const store = configureStore({
 });
 
 store.subscribe(() => {
+  console.group('----- store.subscribe');
   const { setItem } = useLocalStorage();
   const { tasks } = store.getState();
   setItem('tasks', tasks);
+  console.log('tasks -', tasks);
+  console.groupEnd();
 });
 
 export type RootState = ReturnType<typeof store.getState>;

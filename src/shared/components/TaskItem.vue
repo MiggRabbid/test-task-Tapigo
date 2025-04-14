@@ -1,14 +1,14 @@
 <!-- src/features/tasks/components/TaskItem.vue -->
 <template>
-  <v-list-item>
-    <v-list-item-content>
-      <v-list-item-title :class="{ 'task-done': task.done }">
+  <v-list-item
+    class="max-w-3xl w-full! h-fit! px-10! py-5! rounded-md! shadow-md! flex! justify-between! items-center!"
+  >
+    <div class="w-full! h-fit! flex! justify-between! items-center!">
+      <v-list-item-title class="w-fit!">
         {{ task.title }}
       </v-list-item-title>
-    </v-list-item-content>
-    <v-list-item-action>
       <v-checkbox :input-value="task.done" @change="clickOnTasks" />
-    </v-list-item-action>
+    </div>
   </v-list-item>
 </template>
 

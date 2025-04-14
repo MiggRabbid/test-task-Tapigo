@@ -1,12 +1,9 @@
 import './assets/main.css';
+import 'vuetify/styles';
 
 import { createApp } from 'vue';
 import App from './App.vue';
-
-import { createVuetify } from 'vuetify';
-import 'vuetify/styles';
-
-const vuetify = createVuetify();
+import { vuetify } from './configs/vuetify';
 
 const app = createApp(App);
 

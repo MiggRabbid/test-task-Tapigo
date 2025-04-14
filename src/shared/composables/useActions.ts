@@ -9,7 +9,7 @@ export function useActions() {
     dispatch(actions.setTaskState(taskId));
   };
   const setTasks = (tasks: TypeTaskList) => {
-    dispatch(actions.setTaskState(tasks));
+    dispatch(actions.setTasks(tasks));
   };
 
   return { setTaskState, setTasks };

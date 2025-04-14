@@ -1,10 +1,12 @@
 <!-- src/features/tasks/components/TaskList.vue -->
 <template>
-  <v-system-bar>
-    <div class="w-full h-fit px-10 py-2 rounded-b-md shadow">
-      <p class="font-bold text-xl">Список задач</p>
+  <div
+    class="max-w-7xl! w-full! h-fit! px-10! py-4! mx-auto!rounded-b-xl! shadow! bg-white!"
+  >
+    <div>
+      <p class="font-semibold! text-2xl">Список задач</p>
     </div>
-  </v-system-bar>
+  </div>
 </template>
 
 <script lang="ts">

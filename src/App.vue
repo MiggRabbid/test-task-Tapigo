@@ -1,6 +1,8 @@
 <template>
-  <AppHeader />
-  <HomeView />
+  <v-app>
+    <AppHeader />
+    <HomeView />
+  </v-app>
 </template>
 
 <script setup lang="ts">
