@@ -4,13 +4,17 @@ i:
 d:
 	npm run dev
 
+dp:
+	rm -rf dist
+	npm run build
+	npm run deploy
+
 b:
 	rm -rf dist
 	npm run build
 
 p:
 	npm run preview
-
 
 bo:
 	rm -rf dist
