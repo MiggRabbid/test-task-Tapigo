@@ -30,7 +30,6 @@ export default defineComponent({
   },
   setup(props) {
     const { setTaskState } = useActions();
-    console.log('task -', props.task);
 
     const clickOnTasks = () => {
       setTaskState(props.task.id);

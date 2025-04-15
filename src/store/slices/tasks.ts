@@ -8,10 +8,7 @@ const tasksSlice = createSlice({
   initialState: initialState,
   reducers: {
     setTasks(state, action: PayloadAction<TypeTaskList>) {
-      console.group('----- setTasks');
-      console.log('tasks -', action.payload);
       state.tasks = action.payload;
-      console.groupEnd();
     },
     setTaskState(state, action: PayloadAction<number>) {
       const task = state.tasks.find((task) => task.id === action.payload);

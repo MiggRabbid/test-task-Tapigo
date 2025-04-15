@@ -24,20 +24,15 @@ export default {
     const { setTasks } = useActions();
     const { getItem } = useLocalStorage();
     onMounted(async () => {
-      console.group('----- TaskList - onBeforeMount');
       const oldTasks = getItem('tasks');
-      console.log('oldTasks -', oldTasks);
       if (oldTasks && oldTasks?.length > 0) {
         setTasks(oldTasks);
-        console.groupEnd();
         return;
       }
       const tasks = await fetchTasks();
-      console.log('tasks    -', tasks);
       if (tasks) {
         setTasks(tasks);
       }
-      console.groupEnd();
     });
 
     const tasks = computed(() => state.value.tasks);
