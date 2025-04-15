@@ -1,39 +1,80 @@
-# 1
+#### Задача
 
-This template should help get you started developing with Vue 3 in Vite.
+Создать небольшое SPA-приложение на Vue, которое:
 
-## Recommended IDE Setup
+- Загружает список задач из JSON-файла
+- Позволяет отмечать задачи как выполненные (чекбоксы)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+#### Требования к функциональности
 
-## Type Support for `.vue` Imports in TS
+-При первом запуске данные подгружаются асинхронно из файла tasks.json
+-При перезагрузке страницы, состояние списка задач сохраняется
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+#### Структура JSON
 
-## Customize configuration
+Пример файла tasks.json:
 
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+```
+[
+  { "id": 1, "title": "Задача 1", "done": false },
+  { "id": 2, "title": "Задача 2", "done": false },
+  { "id": 3, "title": "Задача 3", "done": false },
+  { "id": 4, "title": "Задача 4", "done": false },
+  { "id": 5, "title": "Задача 5", "done": false }
+]
 ```
 
-### Compile and Hot-Reload for Development
+---
 
-```sh
-npm run dev
+#### Реализация
+
+1. Архитектура проекта Composition API с применением принципов FSD
+2. Redux для хранения состояния проекта, localStore для хранения состояния при перезагрузке страницы
+3. При первом запуске, если в состоянии отсутствуют задачи, осуществляется асинхронная загрузка из файла `tasks.json`.
+4. Vuetify и TailwindCss для стилизации
+
+##### Дополнительные замечания
+
+- **Redux в Vue:** Несмотря на то, что Redux чаще используется с React, в данном примере он подключается напрямую через пакет `redux`. Для более удобной интеграции можно рассмотреть использование специализированных обёрток, если проект будет масштабироваться.
+
+#### Структура проекта
+
+```
+.
+├── index.html
+├── public               // публичные файлы (favicon, tasks.json)
+├── src                  // рабочая директория
+│   ├── App.vue          //
+│   ├── api              // api для получения задач
+│   ├── assets           // глобальные стили
+│   ├── configs          // конфигурация (в частности для vuetify)
+│   ├── features         // используемые фичи
+│   ├── main.ts          // инициализация приложения
+│   ├── shared
+│   │   ├── components   // переиспользуемые компоненты
+│   │   └── composables  // хуки
+│   ├── store            // подключение и логика Redux Toolkit
+│   ├── types            // общая типизация
+│   └── views            //
 ```
 
-### Type-Check, Compile and Minify for Production
+---
 
-```sh
-npm run build
+#### Запуск проект
+
 ```
+// клонирование репозитория
+git clone git@github.com:MiggRabbid/test-task-Tapigo.git
 
-### Lint with [ESLint](https://eslint.org/)
+// установка зависимостей
+make i
 
-```sh
-npm run lint
+// режим разработчика
+make d
+
+// сборка проекта
+make b
+
+// структура проекта
+make rt
 ```
