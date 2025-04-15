@@ -1,8 +1,7 @@
-<!-- src/features/tasks/components/TaskList.vue -->
 <template>
   <v-container>
     <div class="min-w-50 min-h-50">
-      <v-list>
+      <v-list class="flex flex-col gap-4">
         <TaskItem v-for="task in tasks" :key="task.id" :task="task" />
       </v-list>
     </div>
