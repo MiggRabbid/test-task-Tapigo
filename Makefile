@@ -20,3 +20,7 @@ l:
 
 f:
 	npm run format
+
+	
+tr:
+	tree -I 'node_modules|.vscode|dist'
